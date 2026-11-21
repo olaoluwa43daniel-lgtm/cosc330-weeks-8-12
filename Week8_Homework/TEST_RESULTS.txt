@@ -1,0 +1,108 @@
+LOCAL LINUX TEST RESULTS - 27 October 2026
+These tests ran locally, not on AWS EC2.
+
+PASS syntax: hello.py
+PASS syntax: add.py
+PASS syntax: calculate.py
+PASS Bash syntax: q3_menu_shell.sh
+PASS Bash syntax: q2_calculator_shell.sh
+PASS Bash syntax: q1_add_shell.sh
+
+PASS make hello
+Hello, world!
+
+PASS make add
+First integer: Second integer: Result: 12
+
+PASS make subtract
+First integer: Second integer: Result: -4
+
+PASS make multiply
+First integer: Second integer: Result: -21
+
+PASS: invalid number reports an error.
+
+PASS interactive q1
+
+Type add or exit: Invalid choice. Type add or exit.
+
+Type add or exit: First integer: Second integer: Result: 10
+
+Type add or exit: First integer: Second integer: Result: -3
+
+Type add or exit: Goodbye.
+
+
+PASS interactive q2
+
+Type add, subtract, multiply, or exit: First integer: Second integer: Result: 10
+
+Type add, subtract, multiply, or exit: First integer: Second integer: Result: -3
+
+Type add, subtract, multiply, or exit: First integer: Second integer: Result: -12
+
+Type add, subtract, multiply, or exit: Goodbye.
+
+
+PASS interactive q3
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: Invalid choice. Enter 1 through 5.
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: First integer: Second integer: Result: 11
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: First integer: Second integer: Result: -5
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: First integer: Second integer: Result: 24
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: Directory path (blank for current directory): Error: directory does not exist.
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: Directory path (blank for current directory): total 44
+drwxr-xr-x  2 root root 4096 Oct 27 16:51 .
+drwx------ 11 root root 4096 Oct 27 16:51 ..
+-rw-r--r--  1 root root 1407 Oct 27 16:51 AWS_SETUP.txt
+-rw-r--r--  1 root root  346 Oct 27 16:51 Makefile
+-rw-r--r--  1 root root 1697 Oct 27 16:51 README.txt
+-rw-r--r--  1 root root  461 Oct 27 16:51 add.py
+-rw-r--r--  1 root root  680 Oct 27 16:51 calculate.py
+-rw-r--r--  1 root root   82 Oct 27 16:51 hello.py
+-rw-r--r--  1 root root  424 Oct 27 16:51 q1_add_shell.sh
+-rw-r--r--  1 root root  483 Oct 27 16:51 q2_calculator_shell.sh
+-rw-r--r--  1 root root  986 Oct 27 16:51 q3_menu_shell.sh
+
+1. Add
+2. Subtract
+3. Multiply
+4. List a directory
+5. Exit
+Choose: Goodbye.
+

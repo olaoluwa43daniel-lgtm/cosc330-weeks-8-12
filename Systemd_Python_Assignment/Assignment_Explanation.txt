@@ -1,0 +1,59 @@
+PYTHON AND SYSTEMD: TWO PRACTICAL EXAMPLES
+Name: Oluwafemi Olaoluwa
+
+Purpose
+These examples demonstrate launching a Python program through systemd,
+running a background service, reporting its state, and viewing its logs.
+
+Example 1: Browser launcher
+simple_browser.py uses Python's webbrowser module to ask the user's desktop
+to open https://www.python.org. browser_launcher.service runs that script.
+It is a user service so it can use the logged-in user's desktop environment.
+Type=oneshot matches a task that runs once and finishes. No restart policy
+is used because repeatedly launching browser windows is unnecessary.
+
+Example 2: Background clock
+clock_daemon.py prints the current time every five seconds. Unlike the
+browser launcher, it stays running until it receives a stop signal.
+clock_daemon.service uses Type=notify, so systemd waits for READY=1 before
+considering startup complete. The program obtains NOTIFY_SOCKET from its
+environment and sends messages to that Unix datagram socket.
+It sends STATUS messages with the latest time. When stopped, it sends
+STOPPING=1 before exiting. Restart=on-failure requests a restart after an
+unexpected failure; a normal systemctl stop does not trigger a restart.
+
+Step-by-step method
+1. Write a Python script for each task.
+2. Define how systemd should run each script in a .service file.
+3. Copy the units into ~/.config/systemd/user/.
+4. Run systemctl --user daemon-reload to load the definitions.
+5. Start a service, inspect its status, and read its journal.
+6. Stop the clock and inspect its shutdown log.
+
+Important service settings
+[Unit]: description and ordering information.
+[Service]: program command, startup type, restart policy, and logging.
+[Install]: the target used if the service is enabled.
+ExecStart: command that runs the Python script.
+NotifyAccess=main: allows notifications from the main service process.
+StandardOutput=journal: sends printed output to the systemd journal.
+default.target: the user manager's default startup target.
+
+Relation to the reading
+The linked article uses a FastAPI time web service and notification helpers.
+The clock example simplifies that idea to a console daemon with no external
+packages, while preserving readiness, status, and stopping notifications.
+It does not implement an HTTP endpoint or configuration reloads.
+
+Validation
+See Test_Results.txt for checks actually performed. Installation and live
+systemd execution need to be demonstrated on a suitable Linux machine.
+
+References
+Professor's attached document: Chapt_GPT_ (1).docx
+Mitch's Blog, Integrating Python-based daemons with systemd (Part 1):
+https://www.dermitch.de/post/systemd-python-daemons-part-1/
+Official systemd service documentation:
+https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+Official notification documentation:
+https://www.freedesktop.org/software/systemd/man/latest/sd_notify.html

@@ -1,0 +1,20 @@
+LOCAL VALIDATION RESULTS
+Date: 22 October 2026
+
+PASS: Python syntax: simple_browser.py
+PASS: Python syntax: clock_daemon.py
+PASS: browser launcher success and failure paths (mock browser).
+PASS: notify encodes and addresses filesystem and abstract sockets (mock socket).
+PASS: missing NOTIFY_SOCKET safely skips notification.
+PASS: real clock subprocess prints time and handles SIGTERM cleanly (exit 0).
+
+PASS: both service definitions passed systemd-analyze verify (static check).
+User-manager verification was unavailable; no live services were started.
+
+Limitations
+The host uses supervisord as PID 1. It has no active systemd user manager.
+Local Unix sockets are blocked by the host, so notification transport was
+checked using a mock socket. The browser call was also mocked.
+These checks do not prove live systemd deployment or a visible browser.
+No desktop screenshots or systemctl runtime results are claimed.
+Run the README commands on a Linux desktop to demonstrate both services.

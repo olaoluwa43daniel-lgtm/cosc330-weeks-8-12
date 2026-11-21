@@ -1,0 +1,16 @@
+[Unit]
+Description=Python clock daemon with systemd notifications
+
+[Service]
+Type=notify
+NotifyAccess=main
+ExecStart=/usr/bin/python3 %h/systemd_python_assignment/clock_daemon.py
+Restart=on-failure
+RestartSec=3
+TimeoutStartSec=15
+TimeoutStopSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

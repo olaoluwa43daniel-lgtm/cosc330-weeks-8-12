@@ -1,0 +1,41 @@
+REMAINING AWS UBUNTU SETUP - NOT EXECUTED
+
+1. Sign into the AWS account and review available credits and cost limits.
+2. In EC2, launch an Ubuntu Server LTS instance. Select an instance size
+   within the account's approved budget. Do not assume every account has
+   free usage. Restrict SSH access to the required client IP.
+3. Connect using EC2 Instance Connect or SSH, as supported by the instance.
+4. Update Ubuntu and install Python and make:
+
+    sudo apt update
+    sudo apt upgrade -y
+    sudo apt install -y python3 make curl unzip
+
+5. Install AWS CLI v2 using the official instructions for the server's
+   processor architecture:
+   https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+6. Verify:
+
+    python3 --version
+    make --version
+    aws --version
+
+7. Transfer the ZIP to the Ubuntu server and extract it:
+
+    unzip Week8_Homework_Oluwafemi_Olaoluwa.zip
+    cd Week8_Homework
+    make hello
+    make q1
+    make q2
+    make q3
+
+8. Capture actual server and terminal screenshots for the cloud portion.
+   Do not include passwords, private keys, or access keys.
+9. After the required demonstration, clean up unused resources to avoid
+   ongoing charges. Stopped instances can still retain chargeable storage.
+
+Reference:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+
+These are instructions, not evidence that an EC2 server was created.

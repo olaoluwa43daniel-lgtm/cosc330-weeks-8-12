@@ -1,0 +1,12 @@
+[Unit]
+Description=Python browser launcher demonstration
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 %h/systemd_python_assignment/simple_browser.py
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=graphical-session.target
