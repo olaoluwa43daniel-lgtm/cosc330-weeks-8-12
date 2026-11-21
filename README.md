@@ -1,5 +1,7 @@
 # COSC 330 Systems Programming I
 
+[Public GitHub repository](https://github.com/olaoluwa43daniel-lgtm/cosc330-weeks-8-12)
+
 This repository documents the Week 8 Ubuntu and Python assignments and the Week 12 EC2-to-S3 progress report.
 
 | Folder | Contents |
